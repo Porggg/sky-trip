@@ -1,0 +1,79 @@
+/*
+ * Sky Trip design tokens.
+ * The interface is a night sky: deep blue-black inks, starlight for the one accent,
+ * and a cool secondary blue reserved for information and links.
+ */
+:root {
+  color-scheme: dark;
+
+  /* Inks — from the darkest sky to raised surfaces */
+  --ink-0: #05080f;
+  --ink-1: #0a0f1c;
+  --ink-2: #0f1626;
+  --ink-3: #151e32;
+  --ink-4: #1d2840;
+  --ink-5: #28354f;
+
+  --hairline: rgba(190, 205, 240, 0.1);
+  --hairline-strong: rgba(190, 205, 240, 0.18);
+
+  /* Text */
+  --text-1: #eef1f8;
+  --text-2: #aab3c7;
+  --text-3: #707b94;
+
+  /* Starlight: the only warm colour of the UI */
+  --star: #f3c77a;
+  --star-bright: #ffdb9c;
+  --star-soft: rgba(243, 199, 122, 0.14);
+  --on-star: #231804;
+
+  /* Secondary cool accent */
+  --sky: #8fb4ff;
+  --sky-soft: rgba(143, 180, 255, 0.14);
+
+  --ok: #86d3ae;
+  --warn: #f0b070;
+  --danger: #f28b82;
+
+  /* Map feature colours (also used in legends) */
+  --map-route: #f5a524;
+  --map-cycle-euro: #0e63a8;
+  --map-cycle-national: #1c82c6;
+  --map-cycle-regional: #52a8dc;
+  --map-station: #16223a;
+  --map-lodging: #8c2f55;
+  --map-night: #1b2750;
+
+  /* Type */
+  --font-display: 'Fraunces Variable', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-ui: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-md: 0.9375rem;
+  --fs-lg: 1.0625rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+
+  /* Space & shape */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+
+  --shadow-float: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 12px 32px rgba(2, 4, 10, 0.45), 0 2px 6px rgba(2, 4, 10, 0.35);
+  --focus-ring: 0 0 0 2px var(--ink-1), 0 0 0 4px var(--star);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --panel-width: 408px;
+}

@@ -1,0 +1,365 @@
+/* ——— App shell ——— */
+
+.app {
+  position: fixed;
+  inset: 0;
+}
+
+/* Beats .maplibregl-map { position: relative } */
+.app > .map {
+  position: absolute;
+  inset: 0;
+  background: var(--ink-1);
+}
+
+/* ——— Side panel (desktop) / bottom sheet (mobile) ——— */
+
+.panel {
+  position: absolute;
+  z-index: 10;
+  top: 12px;
+  left: 12px;
+  bottom: 12px;
+  width: var(--panel-width);
+  display: flex;
+  flex-direction: column;
+  background: var(--ink-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
+  overflow: hidden;
+}
+
+.panel__handle {
+  display: none;
+}
+
+.panel__head {
+  position: relative;
+  padding: var(--sp-5) var(--sp-5) var(--sp-3);
+  /* A few faint stars behind the wordmark */
+  background:
+    radial-gradient(1px 1px at 78% 22%, rgba(255, 255, 255, 0.55), transparent 60%),
+    radial-gradient(1px 1px at 88% 58%, rgba(255, 255, 255, 0.35), transparent 60%),
+    radial-gradient(1.5px 1.5px at 67% 40%, rgba(255, 219, 156, 0.6), transparent 60%),
+    radial-gradient(1px 1px at 94% 30%, rgba(255, 255, 255, 0.4), transparent 60%),
+    radial-gradient(1px 1px at 72% 70%, rgba(255, 255, 255, 0.25), transparent 60%),
+    linear-gradient(180deg, var(--ink-2), var(--ink-1));
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.brand__mark {
+  width: 34px;
+  height: 34px;
+  color: var(--star);
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 560;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.brand__tagline {
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+  letter-spacing: 0.02em;
+}
+
+.panel__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-5) transparent;
+}
+
+.tab-panel {
+  padding: var(--sp-4) var(--sp-5) var(--sp-8);
+}
+
+.tab-panel[hidden] {
+  display: none;
+}
+
+/* ——— Tabs ——— */
+
+.tabs {
+  display: flex;
+  gap: var(--sp-1);
+  padding: 0 var(--sp-4);
+  border-bottom: 1px solid var(--hairline);
+  background: var(--ink-1);
+}
+
+.tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 10px 13px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text-3);
+  transition: color 0.15s;
+}
+
+.tab:hover {
+  color: var(--text-2);
+}
+
+.tab[aria-selected='true'] {
+  color: var(--text-1);
+}
+
+.tab[aria-selected='true']::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--star);
+}
+
+.tab__count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+}
+
+/* ——— Floating map tools ——— */
+
+.map-tools {
+  position: absolute;
+  z-index: 5;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.tool-group {
+  display: flex;
+  flex-direction: column;
+  background: var(--ink-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-float);
+  overflow: hidden;
+}
+
+.tool-group > .tool + .tool {
+  border-top: 1px solid var(--hairline);
+}
+
+.tool {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  color: var(--text-2);
+  transition: background 0.15s, color 0.15s;
+}
+
+.tool:hover {
+  background: var(--ink-3);
+  color: var(--text-1);
+}
+
+.tool[aria-pressed='true'] {
+  color: var(--star);
+}
+
+.tool-group--mobile {
+  display: none;
+}
+
+.routing-indicator {
+  position: absolute;
+  z-index: 6;
+  top: 14px;
+  left: calc(var(--panel-width) + 28px);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 7px 12px;
+  font-size: var(--fs-sm);
+  color: var(--text-2);
+  background: var(--ink-1);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-float);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s, transform 0.2s var(--ease-out);
+  pointer-events: none;
+}
+
+.routing-indicator.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.routing-indicator__cancel {
+  margin-left: 4px;
+  padding: 2px 8px;
+  font-size: var(--fs-xs);
+  color: var(--text-1);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-pill);
+}
+
+.routing-indicator__cancel:hover {
+  background: var(--ink-3);
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--hairline-strong);
+  border-top-color: var(--star);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ——— Toast ——— */
+
+.toast {
+  position: absolute;
+  z-index: 30;
+  left: 50%;
+  bottom: 28px;
+  max-width: min(420px, calc(100vw - 32px));
+  padding: 10px 16px;
+  font-size: var(--fs-sm);
+  background: var(--ink-4);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-float);
+  transform: translate(-50%, 12px);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.25s var(--ease-out);
+  pointer-events: none;
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ——— Mobile: the panel becomes a draggable bottom sheet ——— */
+
+@media (max-width: 760px) {
+  .panel {
+    --sheet-full: calc(100dvh - 56px);
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: var(--sheet-full);
+    border-radius: 18px 18px 0 0;
+    border-bottom: 0;
+    transform: translateY(var(--sheet-offset, calc(var(--sheet-full) - 168px)));
+    transition: transform 0.32s var(--ease-out);
+    will-change: transform;
+  }
+
+  .panel.is-dragging {
+    transition: none;
+  }
+
+  .panel__handle {
+    display: block;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 22px;
+    cursor: grab;
+    touch-action: none;
+  }
+
+  .panel__handle::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    width: 38px;
+    height: 4px;
+    margin-left: -19px;
+    border-radius: 4px;
+    background: var(--ink-5);
+  }
+
+  .panel__head {
+    padding: 22px var(--sp-4) var(--sp-3);
+    touch-action: none;
+  }
+
+  .brand {
+    display: none;
+  }
+
+  .tabs {
+    touch-action: none;
+    justify-content: space-between;
+  }
+
+  .tab {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .tab-panel {
+    padding: var(--sp-4) var(--sp-4) calc(var(--sp-8) + env(safe-area-inset-bottom));
+  }
+
+  .map-tools {
+    top: calc(10px + env(safe-area-inset-top));
+    right: 10px;
+  }
+
+  .tool-group--mobile {
+    display: flex;
+  }
+
+  .routing-indicator {
+    left: 50%;
+    top: calc(12px + env(safe-area-inset-top));
+    transform: translate(-50%, -4px);
+  }
+
+  .routing-indicator.is-visible {
+    transform: translate(-50%, 0);
+  }
+
+  .toast {
+    bottom: auto;
+    top: calc(60px + env(safe-area-inset-top));
+  }
+
+  .maplibregl-ctrl-bottom-right {
+    bottom: calc(172px) !important;
+  }
+}

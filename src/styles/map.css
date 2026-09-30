@@ -1,0 +1,355 @@
+/* ——— MapLibre controls, restyled to match the panel ——— */
+
+.maplibregl-map {
+  font-family: var(--font-ui);
+}
+
+.maplibregl-ctrl-bottom-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.maplibregl-ctrl-scale {
+  margin: 0 10px 6px 0 !important;
+  padding: 1px 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-2);
+  background: rgba(10, 15, 28, 0.78);
+  border: 1px solid var(--hairline-strong);
+  border-top: 0;
+}
+
+.maplibregl-ctrl-attrib.maplibregl-compact {
+  margin: 0 10px 10px 0 !important;
+  background: rgba(10, 15, 28, 0.85);
+  color: var(--text-2);
+  border-radius: 14px;
+}
+
+.maplibregl-ctrl-attrib.maplibregl-compact-show {
+  padding: 3px 28px 3px 10px;
+}
+
+.maplibregl-ctrl-attrib a {
+  color: var(--text-1);
+}
+
+.maplibregl-ctrl-attrib-button {
+  filter: invert(1) opacity(0.75);
+  background-color: transparent;
+}
+
+.maplibregl-ctrl-attrib.maplibregl-compact:not(.maplibregl-compact-show) {
+  border: 1px solid var(--hairline-strong);
+}
+
+/* ——— Popups ——— */
+
+.st-popup {
+  max-width: min(340px, calc(100vw - 24px)) !important;
+}
+
+.st-popup .maplibregl-popup-content {
+  padding: 0;
+  color: var(--text-1);
+  background: var(--ink-1);
+  border: 1px solid var(--hairline-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
+  font-size: var(--fs-sm);
+}
+
+.st-popup.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.st-popup.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.st-popup.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
+  border-top-color: var(--ink-1);
+}
+
+.st-popup.maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.st-popup.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.st-popup.maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
+  border-bottom-color: var(--ink-1);
+}
+
+.st-popup.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+  border-right-color: var(--ink-1);
+}
+
+.st-popup.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+  border-left-color: var(--ink-1);
+}
+
+.st-popup .maplibregl-popup-close-button {
+  top: 8px;
+  right: 8px;
+  width: 26px;
+  height: 26px;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text-3);
+  border-radius: var(--radius-sm);
+}
+
+.st-popup .maplibregl-popup-close-button:hover {
+  color: var(--text-1);
+  background: var(--ink-3);
+}
+
+.popup-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px 16px;
+  max-height: min(62vh, 520px);
+  overflow-y: auto;
+}
+
+.popup-card__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 24px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.popup-card__eyebrow .num {
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.popup-card__title {
+  margin-top: -4px;
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.popup-card__meta {
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+.popup-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.popup-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--fs-xs);
+}
+
+.popup-card__details summary {
+  cursor: pointer;
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+.popup-card__details ul {
+  margin: 6px 0 0;
+  padding-left: 16px;
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+.chips--static {
+  gap: 4px;
+}
+
+.service {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 7px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--c);
+  border-radius: 4px;
+}
+
+.bike-rules {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+  background: var(--ink-2);
+  border-radius: var(--radius-md);
+}
+
+.bike-rules strong {
+  color: var(--text-1);
+  font-weight: 600;
+}
+
+.bike-rules__title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+
+.place-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.place-actions .btn {
+  flex: 1;
+}
+
+.sky-reading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 30px;
+}
+
+.sky-reading strong {
+  display: block;
+  font-weight: 600;
+}
+
+.sky-reading__sub {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--text-2);
+}
+
+.facts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.facts li {
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--text-2);
+  background: var(--ink-3);
+  border-radius: var(--radius-pill);
+}
+
+.seg-kind {
+  padding: 2px 8px;
+  font-size: 11px;
+  color: var(--text-2);
+  background: var(--ink-3);
+  border-radius: var(--radius-pill);
+}
+
+.seg-kind.is-green {
+  color: var(--ok);
+  background: rgba(134, 211, 174, 0.1);
+}
+
+.popup-routes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.popup-route + .popup-route {
+  padding-top: 12px;
+  border-top: 1px solid var(--hairline);
+}
+
+.popup-route__title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  font-size: var(--fs-md);
+}
+
+.popup-route__meta {
+  margin: 3px 0 8px;
+  font-size: var(--fs-xs);
+  color: var(--text-3);
+}
+
+/* ——— Markers ——— */
+
+.wp-marker {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-1);
+  background: var(--ink-3);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  cursor: grab;
+  transition: transform 0.12s;
+}
+
+.wp-marker:hover {
+  transform: scale(1.1);
+}
+
+.wp-marker.is-start,
+.wp-marker.is-end {
+  background: var(--star);
+  color: var(--on-star);
+  border-color: #2b1c05;
+}
+
+.maplibregl-marker.maplibregl-marker-dragging .wp-marker,
+.wp-marker:active {
+  cursor: grabbing;
+}
+
+.night-marker {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 24px;
+  padding: 0 8px 0 5px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--star-bright);
+  background: var(--map-night);
+  border: 1.5px solid var(--star);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  transition: transform 0.12s;
+}
+
+.night-marker:hover {
+  transform: scale(1.08);
+}
+
+.night-marker__icon {
+  display: grid;
+}
+
+.you-marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--sky);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 6px rgba(143, 180, 255, 0.25);
+}

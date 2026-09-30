@@ -1,0 +1,32 @@
+{
+  "name": "sky-trip",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Préparer un voyage à vélo sous les étoiles : véloroutes, gares, pollution lumineuse et hébergements sur une seule carte.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "data:stations": "node scripts/build-stations.mjs",
+    "data:cycle-routes": "node scripts/build-cycle-routes.mjs",
+    "data": "npm run data:stations && npm run data:cycle-routes"
+  },
+  "dependencies": {
+    "@fontsource-variable/fraunces": "^5.3.0",
+    "@fontsource/ibm-plex-mono": "^5.3.0",
+    "@fontsource/ibm-plex-sans": "^5.3.0",
+    "fflate": "^0.8.3",
+    "maplibre-gl": "^6.11.2",
+    "suncalc": "^2.0.2"
+  },
+  "devDependencies": {
+    "@maplibre/geojson-vt": "^6.1.1",
+    "@maplibre/maplibre-gl-style-spec": "^26.4.4",
+    "@maplibre/vt-pbf": "^4.3.2",
+    "@types/geojson": "^7946.0.16",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1"
+  }
+}
