@@ -1,5 +1,11 @@
 import * as maplibregl from 'maplibre-gl';
 import type { StyleSpecification } from '@maplibre/maplibre-gl-style-spec';
+// MapLibre computes its worker's URL at runtime, which the production build cannot see:
+// the worker file would be missing and no vector layer (route, cycle network, stations)
+// would render. Importing it here makes Vite bundle it and hands MapLibre its real URL.
+import workerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
+
+maplibregl.setWorkerUrl(workerUrl);
 
 export type BasemapId = 'plan' | 'nuit' | 'velo';
 

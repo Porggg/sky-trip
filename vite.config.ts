@@ -8,5 +8,7 @@ export default defineConfig({
   appType: 'mpa',
   // MapLibre loads its worker with `new URL(..., import.meta.url)`, which pre-bundling breaks.
   optimizeDeps: { exclude: ['maplibre-gl'] },
+  // MapLibre starts its worker as an ES module (`new Worker(url, { type: 'module' })`).
+  worker: { format: 'es' },
   build: { target: 'es2020', chunkSizeWarningLimit: 1500 },
 });
